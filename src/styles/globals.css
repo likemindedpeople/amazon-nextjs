@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  /* * ~~ my custom utilities ~~ */
+  /* https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities */
+
+  /* * helpful SOF answers to my common CSS questions */
+  /* https://stackoverflow.com/questions/35049262/difference-between-justify-content-vs-align-items */
+  /* https://stackoverflow.com/questions/31250174/css-flexbox-difference-between-align-items-and-align-content */
+  /*  */
+
+  /* * aliases for justify-[...] --along *primary* (aka main, inline) axis */
+  /* applies to all flex containers, and sets the alignment of the flex items along the main axis of each flex line */
+  .primary-start {
+    justify-content: flex-start;
+  }
+  .primary-end {
+    justify-content: flex-end;
+  }
+  .primary-center {
+    justify-content: center;
+  }
+  .primary-between {
+    justify-content: space-between;
+  }
+  .primary-around {
+    justify-content: space-around;
+  }
+  .primary-evenly {
+    justify-content: space-evenly;
+  }
+
+  /* * aliases for items-[...] --along *secondary* (aka cross, block) axis */
+  /* applies to all flex containers, and sets the default alignment of the flex items along the cross axis of each flex line */
+  .secondary-start {
+    align-items: flex-start;
+  }
+  .secondary-end {
+    align-items: flex-end;
+  }
+  .secondary-center {
+    align-items: center;
+  }
+  .secondary-baseline {
+    align-items: baseline;
+  }
+  .secondary-stretch {
+    align-items: stretch;
+  }
+}
