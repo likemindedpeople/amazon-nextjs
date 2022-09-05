@@ -9,6 +9,11 @@ export default function Home() {
       </Head>
 
       <Header />
+      <main className='mx-auto max-w-screen-2xl'>
+        {/* Banner */}
+
+        {/* ProductFeed */}
+      </main>
     </div>
   )
 }

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .link {
+    @apply cursor-pointer hover:underline;
+  }
+}
+
 @layer utilities {
   /* * ~~ my custom utilities ~~ */
   /* https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities */
@@ -9,7 +15,30 @@
   /* * helpful SOF answers to my common CSS questions */
   /* https://stackoverflow.com/questions/35049262/difference-between-justify-content-vs-align-items */
   /* https://stackoverflow.com/questions/31250174/css-flexbox-difference-between-align-items-and-align-content */
-  /*  */
+  /* https://stackoverflow.com/questions/50919447/flexbox-flex-start-self-start-and-start-whats-the-difference/50919533#50919533 */
+
+  /* * alias for inline --commonly used with Tailwind's class "hidden" */
+  /* https://stackoverflow.com/questions/8969381/what-is-the-difference-between-display-inline-and-display-inline-block */
+  .shown {
+    display: inline;
+  }
+
+  /* * aliases for creating a new stacking context for manually positioned elements */
+  .stacking-context {
+    position: relative;
+  }
+
+  .stacked {
+    position: absolute;
+  }
+
+  .position {
+    position: relative;
+  }
+
+  .positioned {
+    position: absolute;
+  }
 
   /* * aliases for justify-[...] --along *primary* (aka main, inline) axis */
   /* applies to all flex containers, and sets the alignment of the flex items along the main axis of each flex line */

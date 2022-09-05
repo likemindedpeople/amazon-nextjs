@@ -32,23 +32,43 @@ const Header = () => {
         </div>
         {/* Right */}
         <div className='flex mx-6 space-x-6 text-xs text-white whitespace-nowrap secondary-center'>
-          <div className='cursor-pointer'>
+          <div className='link'>
             <p>Hi Danny</p>
-            <p>Account & Lists</p>
+            <p className='font-extrabold md:text-sm'>Account & Lists</p>
           </div>
-          <div className='cursor-pointer'>
+          <div className='link'>
             <p>Returns</p>
-            <p>& Orders</p>
+            <p className='font-extrabold md:text-sm'>& Orders</p>
           </div>
-          <div className='cursor-pointer'>
+          <div className='flex position link secondary-center'>
+            {/* eventually pull number from Redux */}
+            <span className='top-0 right-0 w-4 h-4 font-bold text-center bg-yellow-400 rounded-full positioned md:right-10 text-amazon_blue'>
+              0
+            </span>
             <ShoppingCartIcon className='h-10' />
-            <p>Basket</p>
+            <p className='hidden mt-2 font-extrabold md:text-sm md:shown'>
+              Basket
+            </p>
           </div>
         </div>
       </div>
 
       {/* Bottom nav */}
-      <div>bottom nav</div>
+      <div className='flex p-2 pl-6 space-x-3 text-sm text-white secondary-center bg-amazon_blue-light'>
+        <p className='flex link secondary-center'>
+          <MenuIcon className='h-6 mr-1' />
+          All
+        </p>
+        <p className='link'>Prime Video</p>
+        <p className='link'>Amazon Business</p>
+        <p className='link'>Today's Deals</p>
+        <p className='hidden link lg:inline'>Electronics</p>
+        <p className='hidden link lg:inline'>Food & Grocery</p>
+        <p className='hidden link lg:inline'>Prime</p>
+        <p className='hidden link lg:inline'>Buy Again</p>
+        <p className='hidden link lg:inline'>Shopper Toolkit</p>
+        <p className='hidden link lg:inline'>Health & Personal Care</p>
+      </div>
     </header>
   )
 }
