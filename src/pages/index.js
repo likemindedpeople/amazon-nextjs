@@ -11,9 +11,10 @@ export default function Home({ products }) {
       </Head>
 
       <Header />
-      {/* is max-w-screen-2xl in demo */}
+
       <main className='max-w-screen-xl mx-auto'>
         <Banner />
+
         <ProductFeed products={products} />
       </main>
     </div>

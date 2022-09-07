@@ -6,6 +6,7 @@ import {
   ShoppingCartIcon,
 } from '@heroicons/react/outline'
 import { signIn, signOut, useSession } from 'next-auth/react'
+import Link from 'next/link'
 
 const Header = () => {
   const { data: session } = useSession()
@@ -15,15 +16,17 @@ const Header = () => {
       {/* Top nav */}
       <div className='flex flex-grow p-1 py-2 secondary-center bg-amazon_blue'>
         {/* Amazon image */}
-        <div className='flex flex-grow mt-2 secondary-center sm:flex-grow-0'>
-          <Image
-            className='cursor-pointer'
-            src='https://links.papareact.com/f90'
-            width={150}
-            height={40}
-            objectFit={'contain'}
-          />
-        </div>
+        <Link href='/'>
+          <div className='flex flex-grow mt-2 secondary-center sm:flex-grow-0'>
+            <Image
+              className='cursor-pointer'
+              src='https://links.papareact.com/f90'
+              width={150}
+              height={40}
+              objectFit={'contain'}
+            />
+          </div>
+        </Link>
         {/* Search bar */}
         <div className='flex-grow hidden h-10 bg-yellow-400 rounded-md cursor-pointer secondary-center hover:bg-yellow-500 sm:flex'>
           <input
@@ -43,16 +46,18 @@ const Header = () => {
             <p>Returns</p>
             <p className='font-extrabold md:text-sm'>& Orders</p>
           </div>
-          <div className='flex position link secondary-center'>
-            {/* eventually pull number from Redux */}
-            <span className='top-0 right-0 w-4 h-4 font-bold text-center bg-yellow-400 rounded-full positioned md:right-10 text-amazon_blue'>
-              0
-            </span>
-            <ShoppingCartIcon className='h-10' />
-            <p className='hidden mt-2 font-extrabold md:text-sm md:shown'>
-              Basket
-            </p>
-          </div>
+          <Link href='/checkout'>
+            <div className='flex position link secondary-center'>
+              {/* eventually pull number from Redux */}
+              <span className='top-0 right-0 w-4 h-4 font-bold text-center bg-yellow-400 rounded-full positioned md:right-10 text-amazon_blue'>
+                0
+              </span>
+              <ShoppingCartIcon className='h-10' />
+              <p className='hidden mt-2 font-extrabold md:text-sm md:shown'>
+                Basket
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
 
