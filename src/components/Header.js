@@ -7,9 +7,12 @@ import {
 } from '@heroicons/react/outline'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
+import { selectItems } from '../slices/basketSlice'
 
 const Header = () => {
   const { data: session } = useSession()
+  const items = useSelector(selectItems)
 
   return (
     <header>
@@ -48,9 +51,9 @@ const Header = () => {
           </div>
           <Link href='/checkout'>
             <div className='flex position link secondary-center'>
-              {/* eventually pull number from Redux */}
+              {/* pulls number from Redux */}
               <span className='top-0 right-0 w-4 h-4 font-bold text-center bg-yellow-400 rounded-full positioned md:right-10 text-amazon_blue'>
-                0
+                {items.length}
               </span>
               <ShoppingCartIcon className='h-10' />
               <p className='hidden mt-2 font-extrabold md:text-sm md:shown'>

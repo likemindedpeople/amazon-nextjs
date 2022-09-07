@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { StarIcon } from '@heroicons/react/solid'
 import Currency from 'react-currency-formatter'
+import { useDispatch } from 'react-redux'
+import { addToBasket } from '../slices/basketSlice'
 
 const MAX_RATING = 5
 const MIN_RATING = 1
@@ -11,7 +13,25 @@ const Product = ({ id, title, price, description, category, image }) => {
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   )
 
+  const dispatch = useDispatch()
+
   const [hasPrime, setHasPrime] = useState(Math.random() < 0.5)
+
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      rating,
+      hasPrime,
+    }
+
+    // sending the product as an action to the Redux store
+    dispatch(addToBasket(product))
+  }
 
   return (
     <div className='z-30 flex flex-col p-10 m-5 bg-white position'>
@@ -38,12 +58,19 @@ const Product = ({ id, title, price, description, category, image }) => {
       </div>
       {hasPrime && (
         <div className='flex -mt-5 space-x-2 secondary-center'>
-          <img className='w-12' src='https://links.papareact.com/fdw' alt='' />
+          <img
+            className='w-12'
+            loading='lazy'
+            src='https://links.papareact.com/fdw'
+            alt=''
+          />
           <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
         </div>
       )}
 
-      <button className='mt-auto button'>Add to Basket</button>
+      <button className='mt-auto button' onClick={addItemToBasket}>
+        Add to Basket
+      </button>
     </div>
   )
 }
