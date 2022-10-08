@@ -45,10 +45,12 @@ const Header = () => {
             <p>{session ? `Hi, ${session.user.name}` : `Sign In`}</p>
             <p className='font-extrabold md:text-sm'>Account & Lists</p>
           </div>
-          <div className='link'>
-            <p>Returns</p>
-            <p className='font-extrabold md:text-sm'>& Orders</p>
-          </div>
+          <Link href='/orders'>
+            <div className='link'>
+              <p>Returns</p>
+              <p className='font-extrabold md:text-sm'>& Orders</p>
+            </div>
+          </Link>
           <Link href='/checkout'>
             <div className='flex position link secondary-center'>
               {/* pulls number from Redux */}
